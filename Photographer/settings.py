@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'Pages.apps.PagesConfig',
+    'Photos.apps.PhotosConfig',
 ]
 
 MIDDLEWARE = [
