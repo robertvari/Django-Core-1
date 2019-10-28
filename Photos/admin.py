@@ -8,4 +8,4 @@ admin.site.register(Category)
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ("title", "category", "image", "uploaded")
 
-admin.site.register(Photo)
+admin.site.register(Photo, PhotoAdmin)
