@@ -4,4 +4,8 @@ from django.contrib import admin
 from .models import Category, Photo
 
 admin.site.register(Category)
+
+class PhotoAdmin(admin.ModelAdmin):
+    list_display = ("title", "category", "image", "uploaded")
+
 admin.site.register(Photo)
