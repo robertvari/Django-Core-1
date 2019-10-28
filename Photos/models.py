@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_delete
+import os
 
 class Category(models.Model):
     name = models.CharField("Név", max_length=100)
@@ -9,6 +11,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+def file_cleanup(sender, instance, **kwargs):
+    os.remove(instance.image.path)
 
 class Photo(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -22,3 +26,5 @@ class Photo(models.Model):
     
     def __str__(self):
         return self.title
+
+post_delete.connect(file_cleanup, sender=Photo)
