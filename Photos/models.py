@@ -18,7 +18,7 @@ class Photo(models.Model):
     uploaded = models.DateField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = "Photos"
+        verbose_name_plural = "Képek"
     
     def __str__(self):
         return self.title
