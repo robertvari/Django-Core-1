@@ -11,9 +11,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-def file_cleanup(sender, instance, **kwargs):
-    os.remove(instance.image.path)
-
 class Photo(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
@@ -26,5 +23,8 @@ class Photo(models.Model):
     
     def __str__(self):
         return self.title
+
+def file_cleanup(sender, instance, **kwargs):
+    os.remove(instance.image.path)
 
 post_delete.connect(file_cleanup, sender=Photo)
