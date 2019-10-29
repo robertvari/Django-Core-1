@@ -17,6 +17,13 @@ def category_view(request, category):
 
     return render(request, "home.html", context)
 
+def photo_view(request, category, photo_title):
+    context = {
+        "photo": Photo.objects.get(title=photo_title)
+    }
+
+    return render(request, "photo_details.html", context)
+
 def contact(request):
     return render(request, 'contact.html')
 

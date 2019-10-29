@@ -1,0 +1,9 @@
+{% extends '_base.html' %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+    <h1>Photo view</h1>
+    <p>{{ photo.title }}</p>
+    <img src="{{ photo.image.url }}" alt="" style="width: 500px">
+{% endblock content %}
