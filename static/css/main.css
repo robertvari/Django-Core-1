@@ -63,3 +63,58 @@ a:hover{
     border-radius: 5px;
     overflow: hidden;
 }
+
+.form_container{
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+}
+
+.contact_form{
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.text_field{
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.button_layout{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.button{
+    padding: 5px 10px;
+    background-color: green;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    color: white;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.form_error{
+    color: orange;
+    font-size: 12px;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
