@@ -1,10 +1,14 @@
 from django.shortcuts import render, HttpResponse
 
-from Photos.models import Category
+from Photos.models import Photo
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        "photos": Photo.objects.all()
+    }
+    
+    return render(request, 'home.html', context)
 
 
 def contact(request):

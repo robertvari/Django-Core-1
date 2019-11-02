@@ -1,3 +1,7 @@
+@import url("images.css");
+@import url("navbar.css");
+
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -20,30 +24,6 @@ a:hover{
     color: white;
 }
 
-.navbar a{
-    display: block;
-    color: turquoise;
-    font-size: 16px;
-    padding: 10px 5px;
-}
-
-.navbar a:hover{
-    background-color: white;
-    transition: 0.5s;
-}
-
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-    background-color: #24292e;
-}
-
-.nav_item{
-    display: flex;
-}
 
 .content{
     padding: 50px 10px 10px 10px;
