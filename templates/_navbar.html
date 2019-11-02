@@ -4,11 +4,9 @@
     </div>
     
     <div class="nav_item">
-        <a href="">City</a>
-        <a href="">Travels</a>
-        <a href="">Nature</a>
-        <a href="">Human</a>
-        <a href="">Seasons</a>
+        {% for item in categories %}
+            <a href="">{{ item }}</a>
+        {% endfor %}
     </div>
 
     <div class="nav_item">
