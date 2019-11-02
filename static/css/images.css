@@ -1,4 +1,36 @@
+.image_grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.thumbnail_container{
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
 .image_thumbnail {
-    max-width: 300px;
-    border-radius: 10px;
+    width: 100%;
+}
+
+.title_conainer{
+    position: relative;
+    opacity: 0;
+}
+
+.thumbnail_container:hover .title_conainer{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    padding: 5px 10px;
+    top:0px;
+    left:0px;
+    right: 0px;
 }

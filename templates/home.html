@@ -4,11 +4,18 @@
 
 {% block content %}
     <div class="image_grid">
+
         {% for photo in photos %}
-            <a href="">
+            <a href="" class="thumbnail_container">
+                
+                <div class="title_conainer">
+                    <div class="title">{{photo.name}}</div>
+                </div>
+                
                 <img src="{{photo.image.url}}" alt="" class="image_thumbnail">
             </a>
         {% endfor %}
+
     </div>
 
 
