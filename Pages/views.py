@@ -38,7 +38,11 @@ def category_view(request, category):
 
 
 def photo_details(request, photo_id):
-    return render(request, 'photo_details.html')
+    context = {
+        "photo": Photo.objects.get(pk=photo_id)
+    }
+
+    return render(request, 'photo_details.html', context)
 
 def contact(request):
     return render(request, 'contact.html')

@@ -3,6 +3,7 @@
 {% block title %}Photo: {{photo.name}}{% endblock title %}
 
 {% block content %}
-    <h1>Photo details page</h1>
     <h3>{{photo.name}}</h3>
+    <img src="{{photo.image.url}}" alt="" style="width:300px">
+    <p>{{photo.description}}</p>
 {% endblock content %}
