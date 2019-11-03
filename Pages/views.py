@@ -1,6 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 from Photos.models import Photo
+from .forms import ContactForm
 
 # Create your views here.
 def get_random_photos():
@@ -44,8 +45,31 @@ def photo_details(request, photo_id):
 
     return render(request, 'photo_details.html', context)
 
+
 def contact(request):
-    return render(request, 'contact.html')
+
+    if request.method == "GET":
+        form = ContactForm()
+
+    else:
+        form = ContactForm( request.POST )
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+
+            print(name)
+            print(email)
+            print(message)
+
+            return redirect("home")
+
+    context = {
+        "form": form
+    }
+
+    return render(request, 'contact.html', context)
 
 def about(request):
     context = {

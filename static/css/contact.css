@@ -1,0 +1,41 @@
+.contact_container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 40px;
+    bottom: 0px;
+    left:0px;
+    right:0px;
+}
+
+.contact_form{
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ffffff40;
+    border-radius: 10px;
+}
+
+.text_field{
+    width: 100%;
+    margin-bottom: 10px;
+    background: transparent;
+    border: 1px solid #ffffff40;
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+}
+
+.button{
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: green;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: lightgreen;
+}

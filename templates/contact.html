@@ -3,19 +3,19 @@
 {% block title %}Contact{% endblock title %}
 
 {% block content %}
-    <h1>Contact Page</h1>
-    <form action="">
-        
-        <input type="text" name='name' placeholder="Name">
-        <br>
-        <br>
-        <input type="email" name='email' placeholder="Email">
+    <div class="contact_container">
 
-        <br>
-        <br>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-        <br>
-        <br>
-        <button>Küldés</button>
-    </form>
+        <form method="post" class="contact_form">
+                {% csrf_token %}
+        
+                <div>{{form.name}}</div>
+                <div>{{form.email}}</div>
+                <div>{{form.message}}</div>
+        
+                <button type="submit" class="button">Send</button>
+        </form>
+
+    </div>
+
+
 {% endblock content %}
