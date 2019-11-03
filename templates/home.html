@@ -3,20 +3,7 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <div class="image_grid">
 
-        {% for photo in photos %}
-            <a href='{% url "photo_details" photo_id=photo.pk %}' class="thumbnail_container">
-                
-                <div class="title_conainer">
-                    <div class="title">{{photo.name}}</div>
-                </div>
-                
-                <img src="{{photo.image.url}}" alt="" class="image_thumbnail">
-            </a>
-        {% endfor %}
-
-    </div>
-
+    {% include '_image_grid.html' %}
 
 {% endblock content %}
