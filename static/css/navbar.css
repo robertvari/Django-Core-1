@@ -1,12 +1,12 @@
 .navbar a{
     display: block;
-    color: turquoise;
+    color: #afafaf;
     font-size: 16px;
     padding: 10px 5px;
 }
 
 .navbar a:hover{
-    background-color: white;
+    background-color: #64b7de;
     transition: 0.5s;
     color: #24292e;
 }
@@ -17,7 +17,7 @@
     position: fixed;
     width: 100%;
     z-index: 10;
-    background-color: #24292e;
+    border-bottom: 1px solid #ffffff40;
 }
 
 .nav_item{

@@ -1,0 +1,29 @@
+.detail_layout{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto 250px;
+}
+
+.detail_photo {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.details_panel{
+    border-left: 1px solid #ffffff40;
+    padding: 0px 10px;
+}
+
+.photo_title{
+    font-size: 32px;
+    border-bottom: 1px solid #ffffff40;
+    margin-bottom: 10px;
+}
+
+.date{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    color: gray;
+    margin-top: 20px;
+}
