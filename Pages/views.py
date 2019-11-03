@@ -21,8 +21,15 @@ def get_random_photos():
     return photo_list
 
 def home(request):
+
+    category_filter = request.GET.get("category")
+    
+    all_photos = Photo.objects.all()
+    if category_filter:
+        all_photos = [i for i in all_photos if i.category.name == category_filter]
+
     context = {
-        "photos": Photo.objects.all()
+        "photos": all_photos
     }
     
     return render(request, 'home.html', context)
