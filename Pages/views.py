@@ -26,7 +26,9 @@ def home(request):
     
     all_photos = Photo.objects.all()
     if category_filter:
-        all_photos = [i for i in all_photos if i.category.name == category_filter]
+        all_photos = Photo.objects.filter(category__name=category_filter)
+
+        #all_photos = [i for i in all_photos if i.category.name == category_filter]
 
     context = {
         "photos": all_photos
