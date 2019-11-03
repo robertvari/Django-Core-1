@@ -4,12 +4,6 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.thumbnail_container{
-    background-color: green;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
 
 .image_thumbnail {
     width: 100%;
@@ -20,9 +14,19 @@
     opacity: 0;
 }
 
-.thumbnail_container:hover .title_conainer{
+.photo_box:hover .title_conainer{
     opacity: 1;
     transition: 0.5s;
+}
+
+.photo_box{
+    width:100%;
+    height: 300px;
+    border-radius: 5px;
+    
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .title{

@@ -1,13 +1,15 @@
 <div class="image_grid">
 
     {% for photo in photos %}
-        <a href='{% url "photo_details" photo_id=photo.pk %}' class="thumbnail_container">
+        <a href='{% url "photo_details" photo_id=photo.pk %}'>
             
-            <div class="title_conainer">
-                <div class="title">{{photo.name}}</div>
+            <div class="photo_box" style="background-image: url( {{photo.image.url}} );">
+
+                <div class="title_conainer">
+                    <div class="title">{{photo.name}}</div>
+                </div>
+                
             </div>
-            
-            <img src="{{photo.image.url}}" alt="" class="image_thumbnail">
         </a>
     {% endfor %}
 
