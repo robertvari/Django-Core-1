@@ -8,6 +8,7 @@
 .navbar a:hover{
     background-color: white;
     transition: 0.5s;
+    color: #24292e;
 }
 
 .navbar{
@@ -21,4 +22,9 @@
 
 .nav_item{
     display: flex;
+}
+
+.active {
+    background-color: green;
+    color: white;
 }

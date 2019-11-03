@@ -5,6 +5,7 @@
 }
 
 .thumbnail_container{
+    background-color: green;
     border-radius: 5px;
     overflow: hidden;
 }

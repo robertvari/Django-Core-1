@@ -37,6 +37,9 @@ def category_view(request, category):
     return render(request, 'categories.html', context)
 
 
+def photo_details(request, photo_id):
+    return render(request, 'photo_details.html')
+
 def contact(request):
     return render(request, 'contact.html')
 
