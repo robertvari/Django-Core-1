@@ -4,7 +4,7 @@ from django.db.models.signals import post_delete
 import os
 
 class Category(models.Model):
-    name = models.CharField("Név", max_length=100)
+    name = models.CharField("Név", max_length=100, unique=True)
 
     class Meta:
         verbose_name_plural = "Kategóriák"
