@@ -1,16 +1,19 @@
 <div class="navbar">
     <div class="nav_item">
-        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'home' %}" class="{% if request.get_full_path == '/' %}active{% endif %}">Home</a>
     </div>
     
     <div class="nav_item">
         {% for item in categories %}
-            <a href="/?category={{ item }}" class="">{{ item }}</a>
+            <a href="/?category={{ item }}" class="{% if request.GET.category == item.name %}active{% endif %}">{{ item }}</a>
         {% endfor %}
     </div>
 
     <div class="nav_item">
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'about' %}" class="{% if 'about' in request.get_full_path %}active{% endif %}">About</a>
+        <a href="{% url 'contact' %}" class="{% if 'contact' in request.get_full_path %}active{% endif %}">Contact</a>
     </div>
+
+    <!-- {{ request.get_full_path }} -->
+    <!-- {{ request.GET.category }} -->
 </div>
