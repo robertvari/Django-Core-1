@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 
 from Photos.models import Photo
 from .forms import ContactForm
+import random
 
 # Create your views here.
 def get_random_photos():
@@ -22,14 +23,20 @@ def get_random_photos():
     return photo_list
 
 def home(request):
+    context = {
+        "background_photo" : random.choice( Photo.objects.all() )
+    }
+
+    return render(request, 'home.html', context)
+
+def categories_view(request):
     category = request.GET.get("category")
 
     context = {
-        "photos": Photo.objects.filter(category__name=category) if category else Photo.objects.all()
+        "photos": Photo.objects.filter(category__name=category)
     }
     
     return render(request, 'home.html', context)
-
 
 def photo_details(request, photo_id):
     context = {

@@ -4,6 +4,11 @@
 
 {% block content %}
 
-    {% include '_image_grid.html' %}
+    <div class="background_photo" style="background-image: url( {{background_photo.image.url}} );">
+    </div>
+
+    <div class="center_page_container">
+        <h1>Wellcome on my page</h1>
+    </div>
 
 {% endblock content %}
