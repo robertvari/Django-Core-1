@@ -1,34 +1,21 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.views.generic import TemplateView, FormView, ListView
 
 from Photos.models import Photo
 from .models import About
 from .forms import ContactForm
 import random
 
-# Create your views here.
-def get_random_photos():
-    '''
-    Get random photos for testing CSS grid
-    '''
-    
-    photo_list = []
-    for index in range(20):
-        photo_list.append(
-            {
-                "name": f"Photo {index}", 
-                "url":f"https://source.unsplash.com/1100x600/?nature{index}",
-                "description": f"Photo {index} description..."
-            }
-        )
-    
-    return photo_list
 
-def home(request):
-    context = {
-        "background_photo" : random.choice( Photo.objects.all() )
-    }
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
-    return render(request, 'home.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["background_photo"] = random.choice( Photo.objects.all() )
+
+        return context
+
 
 def categories_view(request):
     category = request.GET.get("category")
@@ -46,35 +33,35 @@ def photo_details(request, photo_id):
 
     return render(request, 'photo_details.html', context)
 
+class CategoryView(ListView):
+    template_name = "categories.html"
+    model = Photo
+    context_object_name = "photos"
 
-def contact(request):
+    def get_queryset(self):
+        category_name = self.kwargs["category"]
+        return self.model.objects.filter(category__name=category_name)
 
-    if request.method == "GET":
-        form = ContactForm()
+class ContactView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = "/"
 
-    else:
-        form = ContactForm( request.POST )
+    def form_valid(self, form):
+        print(
+            form.data["name"],
+            form.data["email"],
+            form.data["message"],
+        )
 
-        if form.is_valid():
-            name = form.cleaned_data["name"]
-            email = form.cleaned_data["email"]
-            message = form.cleaned_data["message"]
+        return super().form_valid(form)
 
-            print(name)
-            print(email)
-            print(message)
+class AboutView(TemplateView):
+    template_name = 'about.html'
 
-            return redirect("home")
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
-    context = {
-        "form": form
-    }
-
-    return render(request, 'contact.html', context)
-
-def about(request):
-    context = {
-        "about": About.objects.all()
-    }
-    
-    return render(request, 'about.html', context)
+        context["about"] = About.objects.all()
+        
+        return context
