@@ -3,6 +3,7 @@
 @import url("photo_detail.css");
 @import url("contact.css");
 @import url("home.css");
+@import url("about.css");
 
 
 *{
@@ -22,6 +23,12 @@ a{
     color: orange;
     text-decoration: none;
     font-size: 20px;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #ffffff40;
+    margin: 10px 0px;
 }
 
 a:hover{

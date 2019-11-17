@@ -1,0 +1,10 @@
+.about_grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 400px auto;
+}
+
+.profile_pic{
+    width: 100%;
+    border-radius: 10px;
+}

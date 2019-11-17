@@ -3,6 +3,36 @@
 {% block title %}About{% endblock title %}
 
 {% block content %}
-    <h1>About Page</h1>
-    <p>{{ about }}</p>
+    <div class="center_page_container">
+
+        <div class="about_grid">
+            <img src="{{about.0.profile_pic.url}}" alt="" class="profile_pic">
+            
+            <div style="width:100%">
+                <p class="photo_title">{{ about.0.name }}</p>
+                
+                {% if about.0.faceebook %}
+                    <a href="{{ about.0.faceebook }}" target="_blank"><i class="fab fa-facebook" style="margin-right: 10px;"></i>{{ about.0.faceebook }}</a> <br>
+                {% endif %}
+
+                {% if about.0.instagram %}
+                    <a href="{{ about.0.instagram }}" target="_blank"><i class="fab fa-instagram" style="margin-right: 10px;"></i>{{ about.0.instagram }}</a> <br>
+                {% endif %}
+                
+                {% if about.0.phone %}
+                    <p> <i class="fas fa-phone" style="margin-right: 10px;"></i>{{ about.0.phone }}</p>
+                {% endif %}
+                
+                <hr>
+                <p>{{ about.0.description }}</p>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
 {% endblock content %}

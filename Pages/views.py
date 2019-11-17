@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 
 from Photos.models import Photo
+from .models import About
 from .forms import ContactForm
 import random
 
@@ -73,7 +74,7 @@ def contact(request):
 
 def about(request):
     context = {
-        "about": "This is a simple about text in a context."
+        "about": About.objects.all()
     }
     
     return render(request, 'about.html', context)
