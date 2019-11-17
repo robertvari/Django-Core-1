@@ -1,7 +1,7 @@
 <div class="image_grid">
 
     {% for photo in photos %}
-        <a href='{% url "photo_details" photo_id=photo.pk %}'>
+        <a href='{% url "photo_details" category=photo.category.name pk=photo.pk %}'>
             
             <div class="photo_box" style="background-image: url( {{photo.image.url}} );">
 

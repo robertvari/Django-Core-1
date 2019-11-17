@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from django.views.generic import TemplateView, FormView, ListView
+from django.views.generic import TemplateView, FormView, ListView, DetailView
 
 from Photos.models import Photo
 from .models import About
@@ -17,21 +17,11 @@ class HomeView(TemplateView):
         return context
 
 
-def categories_view(request):
-    category = request.GET.get("category")
+class PhotoDetailsView(DetailView):
+    model = Photo
+    template_name = 'photo_details.html'
+    context_object_name = "photo"
 
-    context = {
-        "photos": Photo.objects.filter(category__name=category)
-    }
-    
-    return render(request, 'home.html', context)
-
-def photo_details(request, photo_id):
-    context = {
-        "photo": Photo.objects.get(pk=photo_id)
-    }
-
-    return render(request, 'photo_details.html', context)
 
 class CategoryView(ListView):
     template_name = "categories.html"
