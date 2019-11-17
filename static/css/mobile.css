@@ -1,0 +1,25 @@
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+    .photo_title{
+        font-size: 35px;
+    }
+
+    .center_page_container{
+        padding: 20px;
+    }
+
+    .desktop_navbar{
+        display: none;
+    }
+
+    .mobile_navbar {
+        display: flex;
+    }
+}
+  
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+
+}
+  

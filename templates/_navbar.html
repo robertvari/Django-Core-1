@@ -1,19 +1,39 @@
 <div class="navbar">
-    <div class="nav_item">
-        <a href="{% url 'home' %}" class="{% if request.get_full_path == '/' %}active{% endif %}">Home</a>
-    </div>
+
+    <div class="desktop_navbar">
+
+        <div class="nav_item">
+                <a href="{% url 'home' %}" class="{% if request.get_full_path == '/' %}active{% endif %}">Home</a>
+        </div>
+            
+        <div class="nav_item">
+            {% for item in categories %}
+                <a href="/{{ item }}" class="{% if request.GET.category == item.name %}active{% endif %}">{{ item }}</a>
+            {% endfor %}
+        </div>
     
-    <div class="nav_item">
-        {% for item in categories %}
-            <a href="/{{ item }}" class="{% if request.GET.category == item.name %}active{% endif %}">{{ item }}</a>
-        {% endfor %}
+        <div class="nav_item">
+            <a href="{% url 'about' %}" class="{% if 'about' in request.get_full_path %}active{% endif %}">About</a>
+            <a href="{% url 'contact' %}" class="{% if 'contact' in request.get_full_path %}active{% endif %}">Contact</a>
+        </div>
     </div>
 
-    <div class="nav_item">
-        <a href="{% url 'about' %}" class="{% if 'about' in request.get_full_path %}active{% endif %}">About</a>
-        <a href="{% url 'contact' %}" class="{% if 'contact' in request.get_full_path %}active{% endif %}">Contact</a>
+
+
+
+    <div class="mobile_navbar">
+            <i class="fas fa-bars mobile_bar_icon"></i>
+
+            <div id="mobile_menu_items">
+                <a href="{% url 'home' %}" class="{% if request.get_full_path == '/' %}active{% endif %}">Home</a>
+
+                {% for item in categories %}
+                    <a href="/{{ item }}" class="{% if request.GET.category == item.name %}active{% endif %}">{{ item }}</a>
+                {% endfor %}
+    
+                <a href="{% url 'about' %}" class="{% if 'about' in request.get_full_path %}active{% endif %}">About</a>
+                <a href="{% url 'contact' %}" class="{% if 'contact' in request.get_full_path %}active{% endif %}">Contact</a>
+            </div>
     </div>
 
-    <!-- {{ request.get_full_path }} -->
-    <!-- {{ request.GET.category }} -->
 </div>

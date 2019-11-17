@@ -16,12 +16,10 @@ class HomeView(TemplateView):
 
         return context
 
-
 class PhotoDetailsView(DetailView):
     model = Photo
     template_name = 'photo_details.html'
     context_object_name = "photo"
-
 
 class CategoryView(ListView):
     template_name = "categories.html"

@@ -11,13 +11,32 @@
 }
 
 .navbar{
-    display: flex;
-    justify-content: space-between;
     position: fixed;
     width: 100%;
     z-index: 10;
     background-color: rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid #ffffff40;
+}
+
+.desktop_navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mobile_bar_icon{
+    padding: 5px;
+    font-size: 30px;
+}
+
+.mobile_navbar{
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#mobile_menu_items{
+    display: none;
 }
 
 .nav_item{
