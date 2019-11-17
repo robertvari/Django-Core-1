@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.views.generic import TemplateView, FormView, ListView, DetailView
+from django.core.mail import send_mail
 
 from Photos.models import Photo
 from .models import About
@@ -36,12 +37,8 @@ class ContactView(FormView):
     success_url = "/"
 
     def form_valid(self, form):
-        print(
-            form.data["name"],
-            form.data["email"],
-            form.data["message"],
-        )
 
+        send_mail(form.data["name"], form.data["message"], form.data["email"], ['mail.pythonsuli@gmail.com'], fail_silently=False)
         return super().form_valid(form)
 
 class AboutView(TemplateView):
