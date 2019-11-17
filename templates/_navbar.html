@@ -22,7 +22,7 @@
 
 
     <div class="mobile_navbar">
-            <i class="fas fa-bars mobile_bar_icon"></i>
+            <i class="fas fa-bars mobile_bar_icon" onclick="show_mobile_menu()"></i>
 
             <div id="mobile_menu_items">
                 <a href="{% url 'home' %}" class="{% if request.get_full_path == '/' %}active{% endif %}">Home</a>
